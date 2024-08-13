@@ -8,6 +8,7 @@ The [dev container image](../.devcontainer/devcontainer.json) is set to the Azur
 * [Dev Containers - Marketplace VS](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
 
 # Using the Dev Container
+thanks to you
 
 * Thanks for @dsandovale for dev container and images
 
