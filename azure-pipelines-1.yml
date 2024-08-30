@@ -19,8 +19,8 @@ steps:
     npm run build
   displayName: 'npm install and build'
 
-- task: PublishBuildArtifacts@1
+- task: Npm@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+    command: 'publish'
+    publishRegistry: 'useFeed'
+    publishFeed: '27eb689e-9051-49ad-8090-3a9e444f42a7/28330236-4704-41bc-ba5d-7b9c480ce1c6'
