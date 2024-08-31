@@ -19,9 +19,10 @@ steps:
   inputs:
     command: 'install'
     workingDir: 'C:\Users\2348585\Desktop\new\agent\_work\1\a'
-- task: PublishBuildArtifacts@1
+- task: Npm@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
-    MaxArtifactSize: 2
+    command: 'publish'
+    workingDir: 'C:\Users\2348585\Desktop\new\agent\_work\1\a'
+    publishRegistry: 'useFeed'
+    publishFeed: '27eb689e-9051-49ad-8090-3a9e444f42a7/28330236-4704-41bc-ba5d-7b9c480ce1c6'
+ 
