@@ -1,30 +1,27 @@
-# Node.js
-# Build a general Node.js project with npm.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
-
-trigger:
+trigger: 
 - main
 
-pool: Default
+stages:
+- stage: Build
+  jobs:
+  - job: Build
+    pool: Default
+    steps:
+    - task: Npm@1
+      inputs:
+        command: 'custom'
+        customCommand: 'install -D tailwindcss postcss autoprefixer'
+    - task: Npm@1
+      inputs:
+        command: 'custom'
+        customCommand: 'run build'
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
-
-
-- task: Npm@1
-  inputs:
-    command: 'install'
-    workingDir: 'C:\Users\2348585\Desktop\new\agent\_work\1\a'
-- task: Npm@1
-  inputs:
-    command: 'publish'
-    workingDir: 'C:\Users\2348585\Desktop\new\agent\_work\1\a'
-    publishRegistry: 'useFeed'
-    publishFeed: '27eb689e-9051-49ad-8090-3a9e444f42a7/28330236-4704-41bc-ba5d-7b9c480ce1c6'
+    - task: Npm@1
+      inputs:
+        command: 'publish'
+        workingDir: './dist'
+        publishRegistry: 'useFeed'
+        publishFeed: '$FEED_DETAILS'
 
 
  
